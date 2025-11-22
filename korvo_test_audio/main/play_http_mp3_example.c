@@ -26,6 +26,7 @@
 #include "esp_peripherals.h"
 #include "periph_wifi.h"
 #include "board.h"
+#include "audio_hal.h"
 
 #if (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 1, 0))
 #include "esp_netif.h"
@@ -59,6 +60,9 @@ void app_main(void)
     ESP_LOGI(TAG, "[ 1 ] Start audio codec chip");
     audio_board_handle_t board_handle = audio_board_init();
     audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
+    
+    ESP_LOGI(TAG, "[ 1.1 ] Set volume to maximum");
+    audio_hal_set_volume(board_handle->audio_hal, 100);
 
     ESP_LOGI(TAG, "[2.0] Create audio pipeline for playback");
     audio_pipeline_cfg_t pipeline_cfg = DEFAULT_AUDIO_PIPELINE_CONFIG();
