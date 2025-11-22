@@ -25,7 +25,9 @@
 
 #include "esp_peripherals.h"
 #include "periph_wifi.h"
+#include "periph_adc_button.h"
 #include "board.h"
+#include "board_pins_config.h"
 #include "audio_hal.h"
 
 #if (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 1, 0))
@@ -35,6 +37,7 @@
 #endif
 
 static const char *TAG = "HTTP_MP3_EXAMPLE";
+static int current_volume = 100;  // Current volume level (0-100)
 
 void app_main(void)
 {
@@ -62,7 +65,8 @@ void app_main(void)
     audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
     
     ESP_LOGI(TAG, "[ 1.1 ] Set volume to maximum");
-    audio_hal_set_volume(board_handle->audio_hal, 100);
+    current_volume = 100;
+    audio_hal_set_volume(board_handle->audio_hal, current_volume);
 
     ESP_LOGI(TAG, "[2.0] Create audio pipeline for playback");
     audio_pipeline_cfg_t pipeline_cfg = DEFAULT_AUDIO_PIPELINE_CONFIG();
@@ -105,6 +109,9 @@ void app_main(void)
     esp_periph_start(set, wifi_handle);
     periph_wifi_wait_for_connected(wifi_handle, portMAX_DELAY);
     
+    ESP_LOGI(TAG, "[ 3.1 ] Initialize ADC buttons for volume control");
+    audio_board_key_init(set);
+    
     // Example of using an audio event -- START
     ESP_LOGI(TAG, "[ 4 ] Set up  event listener");
     audio_event_iface_cfg_t evt_cfg = AUDIO_EVENT_IFACE_DEFAULT_CFG();
@@ -125,6 +132,28 @@ void app_main(void)
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "[ * ] Event interface error : %d", ret);
             continue;
+        }
+
+        // Handle volume button events
+        if (msg.source_type == PERIPH_ID_ADC_BTN
+            && msg.cmd == PERIPH_ADC_BUTTON_PRESSED) {
+            if ((int)msg.data == get_input_volup_id()) {
+                current_volume += 10;
+                if (current_volume > 100) {
+                    current_volume = 100;
+                }
+                audio_hal_set_volume(board_handle->audio_hal, current_volume);
+                ESP_LOGI(TAG, "[ * ] Volume Up: %d%%", current_volume);
+                continue;
+            } else if ((int)msg.data == get_input_voldown_id()) {
+                current_volume -= 10;
+                if (current_volume < 0) {
+                    current_volume = 0;
+                }
+                audio_hal_set_volume(board_handle->audio_hal, current_volume);
+                ESP_LOGI(TAG, "[ * ] Volume Down: %d%%", current_volume);
+                continue;
+            }
         }
 
         if (msg.source_type == AUDIO_ELEMENT_TYPE_ELEMENT
