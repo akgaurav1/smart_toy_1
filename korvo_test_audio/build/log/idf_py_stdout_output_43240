@@ -1,0 +1,104 @@
+Command: /home/gaurav/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/gaurav/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/gaurav/esp/korvo_test_audio/build/play_http_mp3.elf /home/gaurav/esp/korvo_test_audio/build/bootloader/bootloader.elf -m '/home/gaurav/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/gaurav/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x9 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Nov 22 2025 14:46:18[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000d000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0d0020 size=2ddcch (187852) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0003ddf4 vaddr=3fc9cd00 size=02224h (  8740) load[0m
+[0;32mI (122) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=c9258h (823896) map[0m
+[0;32mI (269) esp_image: segment 3: paddr=00109280 vaddr=3fc9ef24 size=02ea8h ( 11944) load[0m
+[0;32mI (272) esp_image: segment 4: paddr=0010c130 vaddr=40374000 size=18c08h (101384) load[0m
+[0;32mI (295) esp_image: segment 5: paddr=00124d40 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (305) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (305) boot: Disabling RNG early entropy source...[0m
+[0;32mI (315) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (315) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (315) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (317) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (322) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (326) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (330) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (335) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (340) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (344) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (350) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (354) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (358) esp_psram: Speed: 40MHz[0m
+[0;32mI (361) cpu_start: Multicore app[0m
+[0;32mI (1094) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1103) cpu_start: Pro cpu start user code[0m
+[0;32mI (1103) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1103) app_init: Application information:[0m
+[0;32mI (1104) app_init: Project name:     play_http_mp3[0m
+[0;32mI (1108) app_init: App version:      1[0m
+[0;32mI (1112) app_init: Compile time:     Nov 22 2025 15:49:29[0m
+[0;32mI (1117) app_init: ELF file SHA256:  9f3baddc8...[0m
+[0;32mI (1121) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (1126) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1129) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1134) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1138) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1144) heap_init: At 3FCA64E0 len 00043230 (268 KiB): RAM[0m
+[0;32mI (1149) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1154) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1160) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1165) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1173) spi_flash: detected chip: gd[0m
+[0;32mI (1175) spi_flash: flash io: dio[0m
+[0;33mW (1178) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;32mI (1191) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1197) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1204) main_task: Started on CPU0[0m
+[0;32mI (1216) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1217) main_task: Calling app_main()[0m
+[0;32mI (1227) HTTP_MP3_EXAMPLE: [ 1 ] Start audio codec chip[0m
+[0;33mW (1228) i2c_bus_v2: I2C master handle is NULL, will create new one[0m
+[0;33mW (1278) ES7210: Enable TDM mode. ES7210_SDP_INTERFACE2_REG12: 2[0m
+[0;32mI (1292) HTTP_MP3_EXAMPLE: [2.0] Create audio pipeline for playback[0m
+[0;32mI (1292) HTTP_MP3_EXAMPLE: [2.1] Create http stream to read data[0m
+[0;32mI (1293) HTTP_MP3_EXAMPLE: [2.2] Create i2s stream to write data to codec chip[0m
+[0;32mI (1301) HTTP_MP3_EXAMPLE: [2.3] Create mp3 decoder to decode mp3 file[0m
+[0;32mI (1306) HTTP_MP3_EXAMPLE: [2.4] Register all elements to audio pipeline[0m
+[0;32mI (1313) HTTP_MP3_EXAMPLE: [2.5] Link it together http_stream-->mp3_decoder-->i2s_stream-->[codec_chip][0m
+[0;32mI (1323) HTTP_MP3_EXAMPLE: [2.6] Set up  uri (http as http_stream, mp3 as mp3 decoder, and default output is i2s)[0m
+[0;32mI (1332) HTTP_MP3_EXAMPLE: [ 3 ] Start and wait for Wi-Fi network[0m
+[0;33mW (1347) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;33mW (1386) PERIPH_WIFI: WiFi Event cb, Unhandle event_base:WIFI_EVENT, event_id:43[0m
+[0;33mW (1523) PERIPH_WIFI: WiFi Event cb, Unhandle event_base:WIFI_EVENT, event_id:4[0m
+[0;32mI (3370) HTTP_MP3_EXAMPLE: [ 4 ] Set up  event listener[0m
+[0;32mI (3371) HTTP_MP3_EXAMPLE: [4.1] Listening event from all elements of pipeline[0m
+[0;32mI (3371) HTTP_MP3_EXAMPLE: [4.2] Listening event from peripherals[0m
+[0;32mI (3377) HTTP_MP3_EXAMPLE: [ 5 ] Start audio_pipeline[0m
+[0;32mI (3940) HTTP_MP3_EXAMPLE: [ * ] Receive music info from mp3 decoder, sample_rates=44100, bits=16, ch=2[0m
+[0;33mW (189570) HTTP_STREAM: No more data,errno:0, total_bytes:2994349, rlen = 0[0m
+[0;33mW (191028) HTTP_MP3_EXAMPLE: [ * ] Stop event received[0m
+[0;32mI (191028) HTTP_MP3_EXAMPLE: [ 6 ] Stop audio_pipeline[0m
+[0;33mW (191028) AUDIO_ELEMENT: [http] Element already stopped[0m
+[0;33mW (191032) AUDIO_ELEMENT: [mp3] Element already stopped[0m
+[0;33mW (191037) AUDIO_ELEMENT: [i2s] Element already stopped[0m
+[0;33mW (191042) AUDIO_PIPELINE: There are no listener registered[0m
+[0;33mW (191047) AUDIO_ELEMENT: [http] Element has not create when AUDIO_ELEMENT_TERMINATE[0m
+[0;33mW (191055) AUDIO_ELEMENT: [i2s] Element has not create when AUDIO_ELEMENT_TERMINATE[0m
+[0;33mW (191062) AUDIO_ELEMENT: [mp3] Element has not create when AUDIO_ELEMENT_TERMINATE[0m
+[0;33mW (191074) PERIPH_WIFI: Wi-Fi disconnected from SSID Airtel_sweethome, auto-reconnect disabled, reconnect after 1000 ms[0m
+[0;33mW (191081) PERIPH_WIFI: WiFi Event cb, Unhandle event_base:WIFI_EVENT, event_id:3[0m

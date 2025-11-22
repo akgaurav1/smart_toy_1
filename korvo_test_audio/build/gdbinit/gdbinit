@@ -1,0 +1,2 @@
+source /home/gaurav/esp/korvo_test_audio/build/gdbinit/symbols
+source /home/gaurav/esp/korvo_test_audio/build/gdbinit/connect
