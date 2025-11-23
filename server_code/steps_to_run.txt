@@ -1,0 +1,14 @@
+# 1. Go to your project folder
+cd ~/esp/smart_toy_1/server_code
+
+# 2. Create virtual environment
+python3 -m venv venv
+
+# 3. Activate it
+source venv/bin/activate
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+python server.py
+
